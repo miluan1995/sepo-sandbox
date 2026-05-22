@@ -1,0 +1,27 @@
+schema_version: 1
+id: include-concrete-verification
+title: Include concrete verification
+description: >-
+  When reporting implementation work, include the exact verification commands
+  run and meaningful outcomes such as pass counts or targeted smoke checks.
+type: generic
+domain: communication
+applies_to:
+  - implement
+  - fix-pr
+severity: should
+weight: 4
+status: active
+examples:
+  - source: https://github.com/miluan1995/sepo-sandbox/pull/9
+    note: >-
+      Owner-authored PR summary lists both targeted and full test commands with
+      explicit pass counts.
+  - source: https://github.com/miluan1995/sepo-sandbox/pull/8
+    note: >-
+      Owner-authored PR summary includes the build, targeted adapter test, and
+      full test suite used to verify the patch.
+  - source: https://github.com/miluan1995/sepo-sandbox/pull/4
+    note: >-
+      Owner-authored PR summary records install, build, full tests, and targeted
+      dist smoke verification for a sandbox follow-up.
