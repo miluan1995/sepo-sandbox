@@ -252,7 +252,7 @@ function buildAcpxAgentToken(agent: string, env: NodeJS.ProcessEnv): string {
   // acpx treats --agent as a global custom ACP command override. Quoting is
   // intentionally simple here because relay URLs/models are controlled CI
   // inputs, and the resulting token is consumed by acpx splitCommandLine().
-  return ["codex-acp", ...extraArgs].join(" ");
+  return ["npx", "@zed-industries/codex-acp", ...extraArgs].join(" ");
 }
 
 export function buildAcpxArgs(options: {
