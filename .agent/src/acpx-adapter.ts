@@ -220,6 +220,41 @@ function isCodexAgent(agent: string): boolean {
   return agent.trim().toLowerCase() === "codex";
 }
 
+function codexConfigArgsFromEnv(env: NodeJS.ProcessEnv): string[] {
+  if (!env.OPENAI_BASE_URL && !env.CODEX_BASE_URL && !env.OPENAI_MODEL && !env.CODEX_MODEL) {
+    return [];
+  }
+
+  const args: string[] = [];
+  const baseUrl = env.OPENAI_BASE_URL || env.CODEX_BASE_URL;
+  if (baseUrl) {
+    args.push("--config", `openai_base_url=${JSON.stringify(baseUrl)}`);
+  }
+
+  const model = env.OPENAI_MODEL || env.CODEX_MODEL;
+  if (model) {
+    args.push("--config", `model=${JSON.stringify(model)}`);
+  }
+
+  return args;
+}
+
+function buildAcpxAgentToken(agent: string, env: NodeJS.ProcessEnv): string {
+  if (!isCodexAgent(agent)) {
+    return agent;
+  }
+
+  const extraArgs = codexConfigArgsFromEnv(env);
+  if (extraArgs.length === 0) {
+    return agent;
+  }
+
+  // acpx treats --agent as a global custom ACP command override. Quoting is
+  // intentionally simple here because relay URLs/models are controlled CI
+  // inputs, and the resulting token is consumed by acpx splitCommandLine().
+  return ["codex-acp", ...extraArgs].join(" ");
+}
+
 export function buildAcpxArgs(options: {
   agent: string;
   prompt: string;
@@ -227,6 +262,7 @@ export function buildAcpxArgs(options: {
   timeout?: number;
   sessionName?: string;
   isExecRoute: boolean;
+  env?: NodeJS.ProcessEnv;
 }): string[] {
   const args: string[] = [];
 
@@ -238,7 +274,12 @@ export function buildAcpxArgs(options: {
     args.push("--timeout", String(options.timeout));
   }
 
-  args.push(options.agent);
+  const agentToken = buildAcpxAgentToken(options.agent, options.env ?? process.env);
+  if (agentToken === options.agent) {
+    args.push(options.agent);
+  } else {
+    args.push("--agent", agentToken, options.agent);
+  }
 
   if (options.isExecRoute || !options.sessionName) {
     args.push("exec");
@@ -750,6 +791,7 @@ export function runAcpx(options: AcpxRunOptions): AcpxRunResult {
     timeout,
     sessionName,
     isExecRoute: isExecRoute && !needsTransientExecSession,
+    env,
   });
 
   const result = runCommandWithFileCapture({
