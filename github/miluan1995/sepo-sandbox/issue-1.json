@@ -1,0 +1,32 @@
+{
+  "author": {
+    "is_bot": true,
+    "login": "app/github-actions"
+  },
+  "body": "Use this issue to track Sepo setup for this repository.\n\nThe latest setup status is maintained in the comment below.\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOSkjQnM8AAAABDRp7ww",
+      "author": {
+        "login": "github-actions"
+      },
+      "authorAssociation": "NONE",
+      "body": "<!-- sepo-agent-onboarding-check -->\n## Sepo setup status\n\n### Current status\n\n- [x] GitHub App/auth: resolved via `github_token`\n- [x] Model credentials: `OPENAI_API_KEY` configured\n  - Agent provider: `codex` (AGENT_DEFAULT_PROVIDER)\n- [ ] Memory: not initialized\n  - Run **[Actions > Agent / Memory / Initialization](https://github.com/miluan1995/sepo-sandbox/actions/workflows/agent-memory-bootstrap.yml)**.\n- [ ] Rubrics: not initialized\n  - Optional: run **[Actions > Agent / Rubrics / Initialization](https://github.com/miluan1995/sepo-sandbox/actions/workflows/agent-rubrics-initialization.yml)**.\n\n### Remaining setup\n\n- [ ] Run [Agent / Memory / Initialization](https://github.com/miluan1995/sepo-sandbox/actions/workflows/agent-memory-bootstrap.yml) to initialize memory branch `agent/memory`.\n- [ ] Optional: run [Agent / Rubrics / Initialization](https://github.com/miluan1995/sepo-sandbox/actions/workflows/agent-rubrics-initialization.yml) to initialize rubrics branch `agent/rubrics`.\n\n### Test Sepo\n\nAfter setup, try:\n\n```md\n@sepo-agent /answer Is Sepo configured correctly in this repository?\n```\n\nTry implementation:\n\n```md\n@sepo-agent /implement Create a small README update that verifies the agent can open a PR.\n```\n\nOn an open pull request:\n\n```md\n@sepo-agent /review\n```\n\nLast checked: [GitHub Actions run](https://github.com/miluan1995/sepo-sandbox/actions/runs/26267299635)\n",
+      "createdAt": "2026-05-22T03:44:16Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/miluan1995/sepo-sandbox/issues/1#issuecomment-4514806723",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-22T03:44:16Z",
+  "labels": [],
+  "number": 1,
+  "state": "OPEN",
+  "title": "Sepo setup check",
+  "updatedAt": "2026-05-22T03:47:55Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/issues/1"
+}
