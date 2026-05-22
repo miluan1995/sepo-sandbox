@@ -1,0 +1,34 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "body": "@sepo-agent implement this sandbox auto-PR verification task.\n\nGoal: prove the Sepo Agent can automatically create a pull request after implementing a small change.\n\nChange requested:\n- Add a new markdown file at `docs/auto-pr-smoke.md`.\n- The file should contain a short heading and 4-6 bullet points explaining that auto PR creation is now enabled for this sandbox.\n- Do not change workflows, configuration, package dependencies, secrets, or production behavior.\n\nAcceptance:\n- One new markdown file only.\n- The Agent / Implement workflow should create the pull request automatically; no manual `gh pr create` fallback.\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOSkjQnM8AAAABDTNTjw",
+      "author": {
+        "login": "miluan1995"
+      },
+      "authorAssociation": "OWNER",
+      "body": "**Sepo implementation finished**\n\n- Branch: `agent/implement-issue-14/codex-26274659369`\n- Pull request: https://github.com/miluan1995/sepo-sandbox/pull/15\n\nAdded `docs/auto-pr-smoke.md` with a short heading and five bullets documenting that Sepo Agent auto PR creation is enabled for this sandbox. Verification: `git status --short --untracked-files=all` and `git ls-files --others --exclude-standard` both showed only `docs/auto-pr-smoke.md`; `wc -l docs/auto-pr-smoke.md` reported 7 lines.",
+      "createdAt": "2026-05-22T07:33:08Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/miluan1995/sepo-sandbox/issues/14#issuecomment-4516434831",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-22T07:31:09Z",
+  "labels": [],
+  "number": 14,
+  "state": "OPEN",
+  "title": "Sepo live smoke: auto PR creation",
+  "updatedAt": "2026-05-22T07:33:08Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/issues/14"
+}

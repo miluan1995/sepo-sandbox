@@ -1,0 +1,31 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- Added `docs/auto-pr-smoke.md` for the sandbox auto-PR smoke test.\n- Kept the change documentation-only with no workflow, config, secret, dependency, or production behavior changes.\n\n## Verification\n- `git status --short --untracked-files=all` showed only `docs/auto-pr-smoke.md`.\n- `git ls-files --others --exclude-standard` showed only `docs/auto-pr-smoke.md`.\n- `wc -l docs/auto-pr-smoke.md` reported 7 lines.\n\nCloses #14\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2026-05-22T07:33:07Z",
+  "files": [
+    {
+      "path": "docs/auto-pr-smoke.md",
+      "additions": 7,
+      "deletions": 0,
+      "changeType": "ADDED"
+    }
+  ],
+  "headRefName": "agent/implement-issue-14/codex-26274659369",
+  "labels": [],
+  "mergedAt": null,
+  "number": 15,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "OPEN",
+  "title": "Add auto PR smoke test documentation",
+  "updatedAt": "2026-05-22T07:33:07Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/15"
+}

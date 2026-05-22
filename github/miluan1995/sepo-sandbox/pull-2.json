@@ -1,0 +1,49 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "Sandbox-only patch for OpenClaw P3 test. Adds OPENAI_BASE_URL and OPENAI_MODEL wiring through run-agent-task into acpx/codex env, and mirrors OPENAI_API_KEY into CODEX_API_KEY. Verified locally with npm ci --ignore-scripts, npm run build, and targeted smoke for dist/run.js/action.yml. No production repos touched.",
+  "closedAt": "2026-05-22T04:09:41Z",
+  "comments": [],
+  "createdAt": "2026-05-22T04:08:41Z",
+  "files": [
+    {
+      "path": ".agent/src/run.ts",
+      "additions": 14,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".github/actions/run-agent-task/action.yml",
+      "additions": 10,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".github/workflows/agent-memory-bootstrap.yml",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".github/workflows/agent-rubrics-initialization.yml",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/relay-api",
+  "labels": [],
+  "mergedAt": "2026-05-22T04:09:41Z",
+  "number": 2,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Support OpenAI-compatible relay env",
+  "updatedAt": "2026-05-22T04:09:43Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/2"
+}

@@ -1,0 +1,31 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- Forward OPENAI_BASE_URL and OPENAI_MODEL into the implement provider resolver\n- Forward the same relay settings into run-agent-task so Codex implement runs use TokenFlux instead of default api.openai.com\n\n## Verification\n- npm --prefix .agent ci\n- npm --prefix .agent test: 673/673 pass\n\nUnblocks live smoke issue #10.",
+  "closedAt": "2026-05-22T07:08:02Z",
+  "comments": [],
+  "createdAt": "2026-05-22T07:07:11Z",
+  "files": [
+    {
+      "path": ".github/workflows/agent-implement.yml",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/pass-relay-to-implement",
+  "labels": [],
+  "mergedAt": "2026-05-22T07:08:02Z",
+  "number": 11,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Pass relay config to implement workflow",
+  "updatedAt": "2026-05-22T07:08:04Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/11"
+}

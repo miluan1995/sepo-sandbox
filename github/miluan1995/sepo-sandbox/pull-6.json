@@ -1,0 +1,37 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- fix acpx override usage by omitting the positional `codex` agent when `--agent` is set\n- keeps the Codex custom command carrying `openai_base_url` / `model`\n\n## Verification\n- `npm run build && node --test dist/__tests__/acpx-adapter.test.js`\n- `npm test`\n\n## Context\nPR #5 exposed the next error: acpx rejects combining positional agent with `--agent` override. This patch uses the documented global override form: `acpx --agent \"codex-acp ...\" exec <prompt>`.\n",
+  "closedAt": "2026-05-22T04:54:57Z",
+  "comments": [],
+  "createdAt": "2026-05-22T04:53:14Z",
+  "files": [
+    {
+      "path": ".agent/src/__tests__/acpx-adapter.test.ts",
+      "additions": 0,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".agent/src/acpx-adapter.ts",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/codex-base-url-config",
+  "labels": [],
+  "mergedAt": "2026-05-22T04:54:57Z",
+  "number": 6,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Use acpx agent override without positional Codex",
+  "updatedAt": "2026-05-22T04:54:59Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/6"
+}

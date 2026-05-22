@@ -1,0 +1,31 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "Follow-up sandbox fix for PR #2. The initialization workflows now pass openai_base_url/openai_model into resolve-agent-provider, so the composite action must declare and accept those inputs. This fixes the GitHub Actions warning/failure: Unexpected input(s) openai_base_url, openai_model.",
+  "closedAt": "2026-05-22T04:13:21Z",
+  "comments": [],
+  "createdAt": "2026-05-22T04:13:03Z",
+  "files": [
+    {
+      "path": ".github/actions/resolve-agent-provider/action.yml",
+      "additions": 10,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/relay-api-fix",
+  "labels": [],
+  "mergedAt": "2026-05-22T04:13:21Z",
+  "number": 3,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Accept relay inputs in provider resolver",
+  "updatedAt": "2026-05-22T04:13:23Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/3"
+}

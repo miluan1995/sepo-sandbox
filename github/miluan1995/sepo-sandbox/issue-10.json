@@ -1,0 +1,64 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "body": "@sepo-agent implement this small sandbox task.\n\nGoal: create a tiny documentation artifact that proves the Sepo Agent can make a real code/doc change through the Codex + TokenFlux path.\n\nChange requested:\n- Add a new markdown file at `docs/agent-capability-smoke.md`.\n- The file should explain in 5-8 bullet points what this sandbox Sepo Agent can do now that Codex runs through the OpenAI-compatible relay.\n- Mention this is a sandbox smoke test.\n- Do not change production behavior, workflows, secrets, or package dependencies.\n\nAcceptance:\n- One new markdown file only.\n- No secrets.\n- No workflow/config changes.\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOSkjQnM8AAAABDS6LlQ",
+      "author": {
+        "login": "github-actions"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo could not complete the implementation run.**\n\nInspect the workflow logs and retry if appropriate.\n\nFalling back from WebSockets to HTTPS transport. unexpected status 401 Unauthorized: Incorrect API key provided: sk-de40b*******************************************************0e38. You can find your API key at https://platform.openai.com/account/api-keys., url: wss://api.openai.com/v1/responses, cf-ray: 9ff9f6d31eb7e602-IAD, request id: req_fc8fd2a62c5945ff966425c90b580f63, auth error: 401, auth error code: invalid_api_key",
+      "createdAt": "2026-05-22T07:04:07Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/miluan1995/sepo-sandbox/issues/10#issuecomment-4516121493",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDOSkjQnM8AAAABDS9V-g",
+      "author": {
+        "login": "github-actions"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo could not complete the implementation run.**\n\nInspect the workflow logs and retry if appropriate.\n\n",
+      "createdAt": "2026-05-22T07:09:09Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/miluan1995/sepo-sandbox/issues/10#issuecomment-4516173306",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDOSkjQnM8AAAABDTCXlg",
+      "author": {
+        "login": "github-actions"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo implementation finished**\n\n- Branch: `agent/implement-issue-10/codex-26273964616`\n\nAdded docs/agent-capability-smoke.md as the only working-tree change, with six bullets describing the sandbox Sepo Agent capability smoke test and explicitly avoiding production, workflow, config, secret, and dependency changes. Verified with `git status --short --untracked-files=all`, `find docs -maxdepth 2 -type f -print`, and `awk '/^- / { count++ } END { print count }' docs/agent-capability-smoke.md` showing one new file and 6 bullets.",
+      "createdAt": "2026-05-22T07:16:49Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/miluan1995/sepo-sandbox/issues/10#issuecomment-4516255638",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2026-05-22T07:03:21Z",
+  "labels": [],
+  "number": 10,
+  "state": "OPEN",
+  "title": "Sepo live smoke: add agent capability note",
+  "updatedAt": "2026-05-22T07:16:49Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/issues/10"
+}

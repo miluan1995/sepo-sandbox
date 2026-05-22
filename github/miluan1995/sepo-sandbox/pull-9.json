@@ -1,0 +1,37 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- continue方案C by fixing the Codex provider override shape\n- pass `model_providers.openclaw_relay.*` as typed config fields instead of a JSON string\n- keep WebSocket disabled for the relay provider and add retries/idle timeout\n\n## Verification\n- `npm run build && node --test dist/__tests__/acpx-adapter.test.js` => 26/26 pass\n- `npm test` => 673/673 pass\n\n## Context\nPR #8 proved Codex sees the custom provider override, but CLI config rejected the JSON-string value: `expected struct ModelProviderInfo`. This patch sends individual TOML-style config keys.\n",
+  "closedAt": "2026-05-22T05:24:57Z",
+  "comments": [],
+  "createdAt": "2026-05-22T05:23:55Z",
+  "files": [
+    {
+      "path": ".agent/src/__tests__/acpx-adapter.test.ts",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".agent/src/acpx-adapter.ts",
+      "additions": 9,
+      "deletions": 12,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/c-responses-provider-fields",
+  "labels": [],
+  "mergedAt": "2026-05-22T05:24:57Z",
+  "number": 9,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Pass Codex relay provider as config fields",
+  "updatedAt": "2026-05-22T05:25:00Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/9"
+}

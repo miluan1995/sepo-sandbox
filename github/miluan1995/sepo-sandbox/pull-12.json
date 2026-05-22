@@ -1,0 +1,37 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- Forward OPENAI_BASE_URL and OPENAI_MODEL into the implement workflow\n- Use the custom Codex relay command for session setup commands as well as the main acpx run\n- Prevent implement runs from falling back to api.openai.com when a relay is configured\n\n## Verification\n- npm --prefix .agent test: 673/673 pass\n\nUnblocks live smoke issue #10.",
+  "closedAt": "2026-05-22T07:14:18Z",
+  "comments": [],
+  "createdAt": "2026-05-22T07:13:29Z",
+  "files": [
+    {
+      "path": ".agent/src/acpx-adapter.ts",
+      "additions": 26,
+      "deletions": 5,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".github/workflows/agent-implement.yml",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/pass-relay-to-implement",
+  "labels": [],
+  "mergedAt": "2026-05-22T07:14:18Z",
+  "number": 12,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Use relay config for implement Codex sessions",
+  "updatedAt": "2026-05-22T07:14:21Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/12"
+}

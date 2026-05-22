@@ -1,0 +1,31 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "Sandbox follow-up for Sepo relay API support. acpx selects ACP auth methods using ACPX_AUTH_<METHOD_ID>; Codex advertises codex-api-key/openai-api-key, so this bridges the existing OPENAI_API_KEY input into ACPX_AUTH_CODEX_API_KEY and ACPX_AUTH_OPENAI_API_KEY in addition to OPENAI_API_KEY/CODEX_API_KEY. Verified: npm ci --ignore-scripts, npm run build, npm test, and targeted dist smoke.",
+  "closedAt": "2026-05-22T04:26:32Z",
+  "comments": [],
+  "createdAt": "2026-05-22T04:25:32Z",
+  "files": [
+    {
+      "path": ".agent/src/run.ts",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/codex-auth-config",
+  "labels": [],
+  "mergedAt": "2026-05-22T04:26:32Z",
+  "number": 4,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Bridge Codex ACP auth env for relay credentials",
+  "updatedAt": "2026-05-22T04:26:34Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/4"
+}

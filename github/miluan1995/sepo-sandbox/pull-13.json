@@ -1,0 +1,31 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- Add `docs/agent-capability-smoke.md` with six bullets describing the sandbox Sepo Agent smoke test.\n- Keep the change documentation-only, with no workflow, config, secret, dependency, or production behavior changes.\n\n## Verification\n- Sepo Agent run `26273964616` completed the implementation and committed the branch.\n- Agent reported `git status --short --untracked-files=all` showed only `docs/agent-capability-smoke.md`.\n- Agent reported `find docs -maxdepth 2 -type f -print` showed only `docs/agent-capability-smoke.md`.\n- Agent reported bullet count check returned `6`.\n\nCloses #10.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2026-05-22T07:17:41Z",
+  "files": [
+    {
+      "path": "docs/agent-capability-smoke.md",
+      "additions": 8,
+      "deletions": 0,
+      "changeType": "ADDED"
+    }
+  ],
+  "headRefName": "agent/implement-issue-10/codex-26273964616",
+  "labels": [],
+  "mergedAt": null,
+  "number": 13,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "OPEN",
+  "title": "Add agent capability smoke test note",
+  "updatedAt": "2026-05-22T07:17:41Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/13"
+}

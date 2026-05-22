@@ -1,0 +1,37 @@
+{
+  "author": {
+    "id": "U_kgDOD_QpUg",
+    "is_bot": false,
+    "login": "miluan1995",
+    "name": ""
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n- keep方案C and refine the Codex ACP launch instead of replacing the runner\n- define a custom `openclaw_relay` Codex model provider for the relay base URL\n- disable Responses WebSocket transport for the relay and force HTTP Responses path\n- add request/stream retries and longer stream idle timeout\n- preserve the previous `openai_base_url` override for older Codex builds\n\n## Why\nThe previous patch proved auth/base URL/model/spawn are wired correctly: Codex now reaches `https://tokenflux.dev/v1/responses`. The remaining failure shows WebSocket fallback followed by HTTP 503. This patch makes the relay provider explicit and disables WebSockets so the request shape is closer to the stable HTTP Responses path.\n\n## Verification\n- `npm run build && node --test dist/__tests__/acpx-adapter.test.js` => 26/26 pass\n- `npm test` => 673/673 pass\n",
+  "closedAt": "2026-05-22T05:20:25Z",
+  "comments": [],
+  "createdAt": "2026-05-22T05:19:26Z",
+  "files": [
+    {
+      "path": ".agent/src/__tests__/acpx-adapter.test.ts",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": ".agent/src/acpx-adapter.ts",
+      "additions": 14,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "openclaw/c-responses-debug",
+  "labels": [],
+  "mergedAt": "2026-05-22T05:20:25Z",
+  "number": 8,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Configure Codex relay provider for responses transport",
+  "updatedAt": "2026-05-22T05:20:27Z",
+  "url": "https://github.com/miluan1995/sepo-sandbox/pull/8"
+}
