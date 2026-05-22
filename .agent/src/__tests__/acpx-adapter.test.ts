@@ -63,7 +63,7 @@ test("buildAcpxArgs injects Codex OpenAI-compatible relay config via custom agen
     "--json-strict",
     "--suppress-reads",
     "--agent",
-    'npx @zed-industries/codex-acp --config model_providers.openclaw_relay="{\\"name\\":\\"OpenAI-compatible relay\\",\\"base_url\\":\\"https://tokenflux.dev/v1\\",\\"env_key\\":\\"OPENAI_API_KEY\\",\\"wire_api\\":\\"responses\\",\\"request_max_retries\\":2,\\"stream_max_retries\\":2,\\"stream_idle_timeout_ms\\":120000,\\"supports_websockets\\":false,\\"requires_openai_auth\\":false}" --config model_provider="openclaw_relay" --config openai_base_url="https://tokenflux.dev/v1" --config model="daoge/gpt-5.5"',
+    'npx @zed-industries/codex-acp --config model_providers.openclaw_relay.name="OpenAI-compatible relay" --config model_providers.openclaw_relay.base_url="https://tokenflux.dev/v1" --config model_providers.openclaw_relay.env_key="OPENAI_API_KEY" --config model_providers.openclaw_relay.wire_api="responses" --config model_providers.openclaw_relay.request_max_retries=2 --config model_providers.openclaw_relay.stream_max_retries=2 --config model_providers.openclaw_relay.stream_idle_timeout_ms=120000 --config model_providers.openclaw_relay.supports_websockets=false --config model_providers.openclaw_relay.requires_openai_auth=false --config model_provider="openclaw_relay" --config openai_base_url="https://tokenflux.dev/v1" --config model="daoge/gpt-5.5"',
     "exec",
     "seed rubrics",
   ]);

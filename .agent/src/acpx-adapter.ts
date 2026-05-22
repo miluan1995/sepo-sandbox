@@ -228,18 +228,15 @@ function codexConfigArgsFromEnv(env: NodeJS.ProcessEnv): string[] {
   const args: string[] = [];
   const baseUrl = env.OPENAI_BASE_URL || env.CODEX_BASE_URL;
   if (baseUrl) {
-    const provider = {
-      name: "OpenAI-compatible relay",
-      base_url: baseUrl,
-      env_key: "OPENAI_API_KEY",
-      wire_api: "responses",
-      request_max_retries: 2,
-      stream_max_retries: 2,
-      stream_idle_timeout_ms: 120000,
-      supports_websockets: false,
-      requires_openai_auth: false,
-    };
-    args.push("--config", `model_providers.openclaw_relay=${JSON.stringify(JSON.stringify(provider))}`);
+    args.push("--config", `model_providers.openclaw_relay.name=${JSON.stringify("OpenAI-compatible relay")}`);
+    args.push("--config", `model_providers.openclaw_relay.base_url=${JSON.stringify(baseUrl)}`);
+    args.push("--config", `model_providers.openclaw_relay.env_key=${JSON.stringify("OPENAI_API_KEY")}`);
+    args.push("--config", `model_providers.openclaw_relay.wire_api=${JSON.stringify("responses")}`);
+    args.push("--config", "model_providers.openclaw_relay.request_max_retries=2");
+    args.push("--config", "model_providers.openclaw_relay.stream_max_retries=2");
+    args.push("--config", "model_providers.openclaw_relay.stream_idle_timeout_ms=120000");
+    args.push("--config", "model_providers.openclaw_relay.supports_websockets=false");
+    args.push("--config", "model_providers.openclaw_relay.requires_openai_auth=false");
     args.push("--config", `model_provider=${JSON.stringify("openclaw_relay")}`);
     // Keep openai_base_url too for older Codex builds that do not honor custom providers.
     args.push("--config", `openai_base_url=${JSON.stringify(baseUrl)}`);
