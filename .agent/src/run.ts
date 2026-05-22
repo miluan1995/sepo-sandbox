@@ -289,6 +289,10 @@ function buildSharedEnv(): Record<string, string> {
     // Some Codex/acpx builds look for CODEX_API_KEY instead of OPENAI_API_KEY.
     // Keep both populated so OpenAI-compatible relay credentials work in Actions.
     env.CODEX_API_KEY = process.env.INPUT_OPENAI_API_KEY;
+    // acpx selects advertised ACP auth methods via ACPX_AUTH_<METHOD_ID> env.
+    // Codex advertises codex-api-key/openai-api-key, so bridge those methods too.
+    env.ACPX_AUTH_CODEX_API_KEY = process.env.INPUT_OPENAI_API_KEY;
+    env.ACPX_AUTH_OPENAI_API_KEY = process.env.INPUT_OPENAI_API_KEY;
   }
   if (process.env.INPUT_OPENAI_BASE_URL) {
     // Pass common OpenAI-compatible base URL names through to provider CLIs.
