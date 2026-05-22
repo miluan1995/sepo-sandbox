@@ -26,6 +26,7 @@ test("buildAcpxArgs puts global flags before the agent token for exec routes", (
     permissionMode: "approve-reads",
     timeout: 90,
     isExecRoute: true,
+    env: {},
   });
 
   assert.deepEqual(args, [
@@ -39,6 +40,33 @@ test("buildAcpxArgs puts global flags before the agent token for exec routes", (
     "codex",
     "exec",
     "review this change",
+  ]);
+});
+
+
+test("buildAcpxArgs injects Codex OpenAI-compatible relay config via custom agent command", () => {
+  const args = buildAcpxArgs({
+    agent: "codex",
+    prompt: "seed rubrics",
+    permissionMode: "approve-all",
+    isExecRoute: true,
+    env: {
+      OPENAI_BASE_URL: "https://tokenflux.dev/v1",
+      OPENAI_MODEL: "daoge/gpt-5.5",
+    },
+  });
+
+  assert.deepEqual(args, [
+    "--approve-all",
+    "--format",
+    "json",
+    "--json-strict",
+    "--suppress-reads",
+    "--agent",
+    'codex-acp --config openai_base_url="https://tokenflux.dev/v1" --config model="daoge/gpt-5.5"',
+    "codex",
+    "exec",
+    "seed rubrics",
   ]);
 });
 
@@ -72,6 +100,7 @@ test("buildAcpxArgs keeps track-only synthesis in exec mode without a named sess
     permissionMode: "approve-all",
     sessionName: sessionNameFromThreadKey("self-evolving/repo:pull_request:267:review:synthesize"),
     isExecRoute: sessionModeForPolicy("track-only") === "exec",
+    env: {},
   });
 
   assert.deepEqual(args, [
@@ -124,7 +153,13 @@ if (args.includes("prompt")) {
       permissionMode: "approve-all",
       thoughtLevel: "xhigh",
       preserveExecThoughtLevel: true,
-      env: { ACPX_TEST_CALLS: callsPath },
+      env: {
+        ACPX_TEST_CALLS: callsPath,
+        OPENAI_BASE_URL: "",
+        CODEX_BASE_URL: "",
+        OPENAI_MODEL: "",
+        CODEX_MODEL: "",
+      },
     });
 
     assert.equal(result.exitCode, 0);
