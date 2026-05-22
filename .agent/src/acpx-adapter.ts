@@ -250,6 +250,14 @@ function codexConfigArgsFromEnv(env: NodeJS.ProcessEnv): string[] {
   return args;
 }
 
+function acpxAgentSelectorArgs(agent: string, env: NodeJS.ProcessEnv): string[] {
+  const agentToken = buildAcpxAgentToken(agent, env);
+  if (agentToken === agent) {
+    return [agent];
+  }
+  return ["--agent", agentToken];
+}
+
 function buildAcpxAgentToken(agent: string, env: NodeJS.ProcessEnv): string {
   if (!isCodexAgent(agent)) {
     return agent;
@@ -418,7 +426,15 @@ function ensureSession(
     try {
       execFileSync(
         "acpx",
-        [agent, "sessions", "ensure", "--name", sessionName, "--resume-session", resumeSessionId],
+        [
+          ...acpxAgentSelectorArgs(agent, env),
+          "sessions",
+          "ensure",
+          "--name",
+          sessionName,
+          "--resume-session",
+          resumeSessionId,
+        ],
         {
           cwd,
           env,
@@ -430,7 +446,7 @@ function ensureSession(
     } catch (err: unknown) {
       const resumeError = (err as { stderr?: Buffer })?.stderr?.toString("utf8") ?? String(err);
       try {
-        execFileSync("acpx", [agent, "sessions", "ensure", "--name", sessionName], {
+        execFileSync("acpx", [...acpxAgentSelectorArgs(agent, env), "sessions", "ensure", "--name", sessionName], {
           cwd,
           env,
           stdio: "pipe",
@@ -453,7 +469,7 @@ function ensureSession(
   }
 
   try {
-    execFileSync("acpx", [agent, "sessions", "ensure", "--name", sessionName], {
+    execFileSync("acpx", [...acpxAgentSelectorArgs(agent, env), "sessions", "ensure", "--name", sessionName], {
       cwd,
       env,
       stdio: "pipe",
@@ -473,7 +489,7 @@ function createTransientSession(
   env: NodeJS.ProcessEnv,
 ): SessionEnsureOutcome {
   try {
-    execFileSync("acpx", [agent, "sessions", "new", "--name", sessionName], {
+    execFileSync("acpx", [...acpxAgentSelectorArgs(agent, env), "sessions", "new", "--name", sessionName], {
       cwd,
       env,
       stdio: "pipe",
@@ -501,7 +517,12 @@ function runSessionSetupCommands(options: {
       thoughtLevel: options.thoughtLevel,
       permissionMode: options.permissionMode,
     })) {
-      execFileSync("acpx", command.args, {
+      const agentSelectorArgs = acpxAgentSelectorArgs(options.agent, options.env);
+      const args =
+        command.args[0] === options.agent
+          ? [...agentSelectorArgs, ...command.args.slice(1)]
+          : command.args;
+      execFileSync("acpx", args, {
         cwd: options.cwd,
         env: options.env,
         stdio: ["pipe", "pipe", "pipe"],
