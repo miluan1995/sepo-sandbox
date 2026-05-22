@@ -17,6 +17,14 @@ inputs:
     description: "OpenAI API key for Codex readiness detection"
     required: false
     default: ""
+  openai_base_url:
+    description: "Optional OpenAI-compatible relay base URL for Codex readiness detection"
+    required: false
+    default: ""
+  openai_model:
+    description: "Optional OpenAI-compatible relay model for Codex readiness detection"
+    required: false
+    default: ""
   claude_oauth_token:
     description: "Claude Code OAuth token for Claude readiness detection"
     required: false
@@ -51,6 +59,8 @@ runs:
         ROUTE_PROVIDER: ${{ inputs.route_provider }}
         DEFAULT_PROVIDER: ${{ inputs.default_provider }}
         OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+        OPENAI_BASE_URL: ${{ inputs.openai_base_url }}
+        OPENAI_MODEL: ${{ inputs.openai_model }}
         CLAUDE_CODE_OAUTH_TOKEN: ${{ inputs.claude_oauth_token }}
         REQUIRED: ${{ inputs.required }}
       run: |
