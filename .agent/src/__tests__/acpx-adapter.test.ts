@@ -64,7 +64,6 @@ test("buildAcpxArgs injects Codex OpenAI-compatible relay config via custom agen
     "--suppress-reads",
     "--agent",
     'codex-acp --config openai_base_url="https://tokenflux.dev/v1" --config model="daoge/gpt-5.5"',
-    "codex",
     "exec",
     "seed rubrics",
   ]);

@@ -278,7 +278,7 @@ export function buildAcpxArgs(options: {
   if (agentToken === options.agent) {
     args.push(options.agent);
   } else {
-    args.push("--agent", agentToken, options.agent);
+    args.push("--agent", agentToken);
   }
 
   if (options.isExecRoute || !options.sessionName) {
