@@ -286,6 +286,20 @@ function buildSharedEnv(): Record<string, string> {
   env.INPUT_SECONDARY_GITHUB_TOKEN = process.env.INPUT_SECONDARY_GITHUB_TOKEN || "";
   if (process.env.INPUT_OPENAI_API_KEY) {
     env.OPENAI_API_KEY = process.env.INPUT_OPENAI_API_KEY;
+    // Some Codex/acpx builds look for CODEX_API_KEY instead of OPENAI_API_KEY.
+    // Keep both populated so OpenAI-compatible relay credentials work in Actions.
+    env.CODEX_API_KEY = process.env.INPUT_OPENAI_API_KEY;
+  }
+  if (process.env.INPUT_OPENAI_BASE_URL) {
+    // Pass common OpenAI-compatible base URL names through to provider CLIs.
+    env.OPENAI_BASE_URL = process.env.INPUT_OPENAI_BASE_URL;
+    env.OPENAI_API_BASE = process.env.INPUT_OPENAI_BASE_URL;
+    env.OPENAI_API_BASE_URL = process.env.INPUT_OPENAI_BASE_URL;
+    env.CODEX_BASE_URL = process.env.INPUT_OPENAI_BASE_URL;
+  }
+  if (process.env.INPUT_OPENAI_MODEL) {
+    env.OPENAI_MODEL = process.env.INPUT_OPENAI_MODEL;
+    env.CODEX_MODEL = process.env.INPUT_OPENAI_MODEL;
   }
   if (process.env.MODEL_REASONING_EFFORT) {
     env.MODEL_REASONING_EFFORT = process.env.MODEL_REASONING_EFFORT;

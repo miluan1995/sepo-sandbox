@@ -52,6 +52,8 @@ jobs:
           route: rubrics-initialization
           default_provider: ${{ vars.AGENT_DEFAULT_PROVIDER || 'auto' }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          openai_base_url: ${{ vars.OPENAI_BASE_URL }}
+          openai_model: ${{ vars.OPENAI_MODEL }}
           claude_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
       - name: Setup agent runtime
@@ -90,6 +92,8 @@ jobs:
           github_token: ${{ steps.auth.outputs.token }}
           secondary_github_token: ${{ secrets.AGENT_SECONDARY_GITHUB_TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          openai_base_url: ${{ vars.OPENAI_BASE_URL }}
+          openai_model: ${{ vars.OPENAI_MODEL }}
           claude_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           permission_mode: approve-all
           prompt: rubrics-initialization
